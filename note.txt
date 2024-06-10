@@ -1,0 +1,106 @@
+                ------------------------------------------
+                            Angular
+                ------------------------------------------
+
+            Commands
+        ----------------
+        1. Installing Angular CLI : npm i -g @angular/cli@16.1.7
+        2. Create angular Project : ng new project-name
+        3. Run angular project : ng serve / ng s -o [Use localhost:4200]
+        4. To create component: ng g c component-name
+        5. To create service : ng g s service-folder/service-name
+        6. Create Module with routing : ng g m users-module --route users-module --module app.module  [eg: ng g m users --route users --module app.module ]
+        7. Pipe Creation : ng g p pipe-folder/pipe-name
+        8. pagination in angular : npm i ngx-pagination
+        9. To convert table to pdf : npm install jspdf jspdf-autotable
+        10.Angular Material Ui : ng add @angular/material
+        11.Angular highcharts : npm install highcharts-angular highcharts
+        12.Angular Guards : ng g g guard-folder/guard-name
+            - CanActivate: Controls if a route can be activated. [digital ocean site]
+            - CanActivateChild: Controls if children of a route can be activated.
+            - CanLoad: Controls if a route can even be loaded. This becomes useful for feature modules that are lazy-loaded. They won’t even load if the guard returns false.
+            - CanDeactivate: Controls if the user can leave a route. Note that this guard doesn’t prevent the user from closing the browser tab or navigating to a different address. It only prevents actions from within the application itself.
+
+
+            REACT                               Angular
+        ---------------------------------------------------
+        1. Library                             1. Framework
+        2. Virtual Dom                         2.Real Dom
+        3. One way binding                     3. Two way binding
+        4. use JSX, JS                         4. use HTML, TS
+        5. Published  by Meta                  5. Published by Google
+        6. Simple App                          6. Complx App
+
+            Concept
+        ---------------
+
+        1. Modules: Organize the applicaton parts into cohesive blocks of functionality. Each block focues on providing a specific functionality or Features
+        2. Component: contains the data and  user interaction logic that define how the View looks and behaves
+        3. Style components : Provide style globally and locally
+        4. Decorators : To provide meta data
+        5. Selectors : used to display component in a template
+        6. Data binding : shairing data within a component
+            - One way binding : data shairing only in one direction
+                - ts (component) to html (view)
+                    - string Interpolation : use {{component property}} in template
+                    - Property Binding : binding class property with tag attribute
+                        - [tag attribute]="property"
+                - html (view) to ts (component)
+                    - event binding : (event)="function-call"
+                    - event binding with event as '$event' : (event)="function-call($event)"
+                    - evnt binding using template reference variable, use #templateReferenceVariable, (event) = "function-call(templateReferenceVariable)"
+            - Two way binding : data shairing in both direction at a same time
+                - TemplateDriven Forms : first create form tag in html part
+                    - 'ngModel' Directive : Used to share data in two way
+                        - Import {FormsModule} in module file
+                        - [(ngModel)]="component-property"
+                        - Applying validation
+                - ModelDriven Forms : First create model in its ts and linked it with html later
+                    - Reactive Forms - import 'ReactiveFormsModule' in module file
+                    - Form Group : using FormBuilder class
+                    - Form array : where we will store data from input
+                    - Form Control : Used to link Form Group with input tag
+        7. Setup path for component
+            - Use app-routing.module.ts file to define path for component
+            - Setup path as 'object' in 'Routes' array of app-routing.module.ts file
+            - {path:'', component:component-name}
+            - Use 'router-outlet' directive in app.component.html file to render component according to the url
+            - 'routerLink' attribute of a tag is used to redirect from one page to another in angular without refreshing
+        8. Angular Directives : Class used to provide special behaviour or properties to angular elements
+            - Component Directive : Used to display a component in browser, ex: selector of a component
+            - attribute Directive : Used to give style to angular elements
+                - ngClas : used to provide class of style to angular elements
+            - Structural Directive : Used to change structure of angular elements by adding or removing elements, use * symbol to indicate its structural directive
+                - *ngIf : used to add/remove elements based on a condition
+                - *ngFor : used to display
+            - ngModel : Used to manage user input data from
+        9. Dependency Injection : used to communicate a class with another predefined class in angular
+            - It should be in the argument of constructor
+            - access-specifier variable-name:Dependent-class-name
+            - also use 
+        10. Angular Services : To share common logic between components 
+            - To create service : ng g s service-folder/service-name
+        11. Asynchronous function hndling in Angular
+            - RXJS (Reactive Extension for JS)
+                - use 'Observable' to resolve asynchronous function
+                    - subscribe( observer object / callback function ) : used to resolve resolved state 
+                        - observer object : 'next' key which holds only success response, 'error' key which holds only server/client error response
+                    - catch() : used to resolve reject state
+                - API call based on Observable
+                    - Import "httpClientModule"
+                    - 'httpClient' class
+                        - Consist of all http method
+        12. 'ActivatedRoute' class : Provides access to information about a route associated with a component
+        13. Pipes : Used to transform user inputs to another format
+            - Inbuilt pipes :
+            - Userdefined pipes
+            - Syntax : userData | pipe-name [:option]
+        14. Parent child communication 
+            - Parent to Child : Parent can share its 'property' to its child, child must have Input dcorator to accept parent data
+            - Child to Parent : Child can share only 'event' to Parent, child must have Output decorator to pass data in any event to its parent
+            - 'EventEmitter' class : to generate user defined event, to execute userdefined event we have to use emit method
+        15. Angular Guards : To guard / Protect routes from unauthorised access
+        
+            Features
+        ----------------
+        1.Modules : 

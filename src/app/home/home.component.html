@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="d-flex justify-content-between mt-5">
+                <h2 class="fw-bolder">Students Details</h2>
+                <button routerLink="/add" class="btn btn-primary"><i class="fa-solid fa-plus me-1"></i>New Student</button>
+            </div>
+            <div class="mt-5 d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <span class="fw-bolder">Search</span>
+                    <input [(ngModel)]="searchKey" type="text" class="form-control ms-3" placeholder="Search By Username">
+                </div>
+                <div>
+                    <button (click)="logout()" class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Logout
+                      </button>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="mt-5 table">
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Education</th>
+                                <th>Exp</th>
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let student of allStudents | search : searchKey;let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{student.name}}</td>
+                                <td>{{student.email}}</td>
+                                <td>{{student.gender}}</td>
+                                <td>{{student.education}}</td>
+                                <td>{{student.exp}}</td>
+                                <td>
+                                    <button routerLink="/{{student.id}}/edit" class="btn text-primary"><i class="fa-solid fa-pen"></i></button>
+                                    <button (click)="deleteStudent(student.id)" class="btn text-danger"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr *ngIf="allStudents.length==0">
+                                <p class="fw-bolder text-danger">User not Found!!!</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="rounded border shadow p-2">
+                <app-editadmin></app-editadmin>
+            </div>
+        </div>
+    </div>
+</div>
